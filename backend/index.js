@@ -22,12 +22,7 @@ const app = express();
 // Use a single CORS middleware for all allowed origins
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "http://localhost:5173",
-      "https://stay-finder-silk.vercel.app"
-    ],
+    origin: true, // Allow all origins dynamically
     credentials: true,
   })
 );

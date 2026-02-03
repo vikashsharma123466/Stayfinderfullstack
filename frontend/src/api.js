@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Update this with your backend URL
+  baseURL: 'https://stayfinderfullstack.onrender.com/api', // Update this with your backend URL
   headers: {
     'Content-Type': 'application/json',
   },
