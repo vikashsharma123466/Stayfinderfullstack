@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://stayfinderfullstack.onrender.com/api",
+  baseURL: "https://stayfinderfullstack.onrender.com",
   withCredentials: true,
 });
 
