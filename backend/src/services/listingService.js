@@ -17,7 +17,7 @@ const getListingsService = async (query) => {
     page = 1,
     limit = 10,
   } = query;
-  const dbQuery = { status: "active" }; // Use the correct status field
+  const dbQuery = {}; // Removed strict status check to allow all listings to show
   if (location) {
     dbQuery.$or = [
       { "location.address": { $regex: location, $options: "i" } },
@@ -51,16 +51,16 @@ const getListingsService = async (query) => {
     .limit(Number(limit))
     .sort({ createdAt: -1 });
   const total = await Listing.countDocuments(dbQuery);
-  
+
   // Debug log for results
   console.log(`Found ${listings.length} listings out of ${total} total`);
-  console.log("Listings found:", listings.map(l => ({ 
-    id: l._id, 
-    title: l.title, 
-    city: l.location.city, 
-    status: l.status 
+  console.log("Listings found:", listings.map(l => ({
+    id: l._id,
+    title: l.title,
+    city: l.location.city,
+    status: l.status
   })));
-  
+
   return {
     listings,
     currentPage: Number(page),
